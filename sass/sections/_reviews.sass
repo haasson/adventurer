@@ -1,0 +1,47 @@
+.slider
+   &__wrap
+      max-width: 760px
+      margin: auto
+   &__item
+      outline: none
+      &-part
+         &:first-child
+            margin-bottom: 70px
+   &__img
+      float: left
+   &__title
+      margin: 0 0 0 160px
+      font-size: 25px
+      +roboto-bold
+      text-transform: uppercase
+      letter-spacing: 0.25px
+   &__subtitle
+      margin: 5px 0 35px 160px 
+      color: $accent
+      font-size: 14px
+      +roboto-bold
+      text-transform: uppercase
+      letter-spacing: 0.14px
+   &__text
+      margin: 0 0 0 160px     
+      color: $light
+      font-size: 18px
+      +roboto-light
+      line-height: 25px
+      letter-spacing: 0.18px
+   &__dots
+      display: flex
+      justify-content: center
+      list-style: none
+      padding: 0
+      li
+         box-sizing: border-box
+         width: 13px
+         height: 13px
+         margin: 10px
+         background-color: $primary
+         border-radius: 50%
+         &.slick-active
+            background-color: $accent
+      button
+         display: none
