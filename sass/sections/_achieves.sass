@@ -1,0 +1,59 @@
+.achieves
+   position: relative
+   padding-bottom: 50px
+   background: #ccc url('../../img/achieves/bg.png') no-repeat round
+   &:after
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      z-index: 1
+      background-color: #000000
+      opacity: 0.84
+   &__items
+      display: flex
+      justify-content: space-between
+   &__item
+      position: relative
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      align-items: center
+      width: 23.5%
+      padding-top: 50px
+      &:after
+         content: ''
+         display: block
+         position: absolute
+         left: 0
+         top: 0
+         width: 100%
+         height: 100%
+         z-index: 50
+         background-color: $accent
+         opacity: 0.3
+   &__image
+      position: relative
+      z-index: 1000
+   &__number
+      position: relative
+      z-index: 1000
+      margin-top: 30px
+      color: #ffffff
+      font-size: 40px
+      +roboto-bold
+      font-variant: small-caps
+      letter-spacing: 0.4px
+   &__text
+      position: relative
+      z-index: 1000
+      margin-top: 25px
+      margin-bottom: 60px
+      color: #ffffff
+      font-size: 14px
+      +roboto-regular
+      text-transform: uppercase
+      letter-spacing: 6.44px

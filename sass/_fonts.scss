@@ -69,6 +69,16 @@
 }
 
 @font-face {
+   font-family: 'Open Sans Regular';
+   src: url('../fonts/OpenSans-Regular.eot');
+   src: url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+   url('../fonts/OpenSans-Regular.woff') format('woff'),
+   url('../fonts/OpenSans-Regular.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
    font-family: 'Myriad Pro Regular';
    src: url('../fonts/MyriadPro-Regular.eot');
    src: url('../fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
@@ -105,6 +115,10 @@
 
 @mixin os-extrabold {
    font-family: 'Open Sans ExtraBold', sans-serif;
+}
+
+@mixin os-regular {
+   font-family: 'Open Sans Regular', sans-serif;
 }
 
 @mixin myriad {

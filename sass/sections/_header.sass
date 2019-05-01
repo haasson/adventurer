@@ -9,12 +9,16 @@
       font-size: 34px
       text-transform: uppercase
       font-variant: small-caps
-      letter-spacing: -3px
+      letter-spacing: -1px
+      font-stretch: condensed
       +pt-sans
    &__search
       width: 30px
       height: 30px
-      text-align: center
+      background: url('../../img/header/search.svg')
+      cursor: pointer
+      &:hover
+         filter: invert(56%) sepia(43%) saturate(6324%) hue-rotate(331deg) brightness(92%) contrast(102%)
    &__nav
       display: flex
    &__link
@@ -26,9 +30,11 @@
       font-size: 14px
       color: $primary
       +roboto-bold
+      transition: .1s
       &:hover
          color: $accent
          border-bottom: 1px solid $accent
+         transition: .1s
    &__main
       position: relative
       height: 520px

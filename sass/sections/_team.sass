@@ -1,0 +1,86 @@
+.team
+   &__items
+      display: flex
+      justify-content: space-between
+   &__item
+      position: relative
+      height: 300px
+      width: 23%
+      background: #ccc url('../../img/team/team-sprite.png') no-repeat
+      &:after
+         content: ''
+         display: block
+         position: absolute
+         z-index: 10
+         top: 0
+         left: 0
+         width: 100%
+         height: 100%
+         background-color: #000000
+         opacity: 0
+         transition: .3s
+      &:hover
+         &:after
+            opacity: .7
+            transition: .3s
+         .team__popup
+            transform: scaleY(1)
+            transition: .1s
+      &_2
+         background-position-x: -287px
+      &_3
+         background-position-x: -574px
+      &_4
+         background-position-x: -861px
+   &__popup
+      position: absolute
+      bottom: 0
+      left: 0
+      z-index: 1000
+      display: flex
+      flex-direction: column
+      align-items: center
+      width: 100%
+      height: 100px
+      background-color: $accent
+      transform-origin: bottom
+      transform: scaleY(0)
+      transition: .1s
+   &__name
+      margin-top: 5px
+      color: #ffffff
+      font-size: 25px
+      +roboto-regular
+      letter-spacing: 0.25px
+   &__skill
+      color: #ffffff
+      font-size: 18px
+      +roboto-regular
+      letter-spacing: 0.18px
+   &__social
+      position: relative
+      display: flex
+      align-items: center
+      height: 18px
+      cursor: pointer
+      &:after
+         content: ''
+         display: block
+         position: absolute
+         bottom: -2px
+         left: 0
+         width: 100%
+         height: 2px
+         background-color: transparent
+      &:hover
+         filter: brightness(0)
+         &:after
+            background-color: #000
+           
+
+      &-list
+         display: flex
+         justify-content: space-between
+         align-items: center
+         width: 50%
+         margin: 15px
