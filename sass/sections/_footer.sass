@@ -44,6 +44,10 @@
          border: 1px solid #e2e2e2
          background: #ffffff url('../../img/footer/social-links.png') no-repeat center
          cursor: pointer
+         transition: .2s
+         &:hover 
+            background-color: #ddd
+            transition: .2s
          &_1
             background-position-x: 20px
          &_2
@@ -78,6 +82,11 @@
          padding: 5px 10px
          margin-bottom: 5px
          background-color: $accent
+         cursor: pointer
+         transition: .2s
+         &:hover
+            background-color: darken($accent, 10%)
+            transition: .2s
       &__text
          color: #ffffff
          font-size: 14px
@@ -87,10 +96,26 @@
 
    &-posts
       &__link
+         position: relative
          display: inline-block
          margin-right: 5px
          margin-bottom: 5px
-
+         &:after
+            content: ''
+            display: block
+            position: absolute
+            z-index: 10
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background-color: #000000
+            opacity: 0
+            transition: .2s
+         &:hover
+            &:after
+               opacity: .4
+               transition: .2s
    &-copy 
       position: relative
       display: flex

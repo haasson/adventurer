@@ -14,16 +14,30 @@
         +roboto-bold
         &:hover
             color: $accent
+    &__wrap
+        position: relative
+        height: 600px
+        width: 100%
+        overflow: hidden
     &__items
+        position: absolute
+        height: 600px
+        left: 15px
+        top: 0
         display: flex
-        justify-content: space-around
+        flex-direction: column
         flex-wrap: wrap
+        transition: .4s 
+
     &__item
         display: flex
         flex-direction: column
         align-items: center
-        margin: 15px auto
-    &__image
+        margin: 15px
+    &__hidden
+        display: none
+        margin: 0
+    &__image-block
         position: relative
         height: 200px
         &:hover
@@ -31,6 +45,9 @@
                 opacity: 1
                 transform: scale(1)
                 transition: opacity .2s
+    &__image_big
+        width: 700px
+        height: 400px
     &__title
         margin-bottom: 5px
         color: $light
@@ -75,21 +92,24 @@
         margin: 20px 10px
         border-radius: 50%
         background-color: #dbdbdb 
+        cursor: pointer
+        &:hover
+            background-color: $accent
         &:before
             content: ''
             display: block
             position: absolute
-            left: 35%
-            top: 32%
+            left: 50%
+            top: 50%
             width: 7px
             height: 7px
             border-bottom: 2px solid #fff
             border-right: 2px solid #fff
-            transform: rotate(135deg)
+            transform-origin: center center
+            transform: translate(-50%, -50%) rotate(135deg)
         &_right
             &:before
-                left: 30%
-                transform: rotate(-45deg)
+                transform: translate(-50%, -50%) rotate(-45deg)
 
 
 
