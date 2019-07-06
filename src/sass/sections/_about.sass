@@ -51,14 +51,19 @@
         font-size: 20px
         color: #fff
         background-color: #afafaf
-        border: 4px solid #b8b8b8
+        border: 4px solid #afafaf
         border-radius: 50%
         cursor: pointer
+        &:hover
+            background-color: darken(#afafaf, 10%)
+            border-color: darken(#afafaf, 10%)
+            &:after
+                background-color: darken(#afafaf, 10%)
         &:after
             content: ''
             display: block
             position: absolute
-            background-color: #b8b8b8
+            background-color: #afafaf
             height: 8px
             width: 13px
             top: 50%
@@ -67,19 +72,24 @@
         &_active
             background-color: $accent
             border-color: #fff
+            &:hover
+                background-color: darken($accent, 10%)
+                border-color: #ddd
+                &:after
+                    background-color: #ddd
             &:after
                 background-color: #fff
     &__dropdown
         padding-left: 25px
         padding-right: 65px
-        max-height: 0
+        height: 0
         background-color: #f8f8f8
         border-radius: 3px
         overflow: hidden
         transition: .2s 
         &_active
-            padding: 26px 65px 26px 25px
-            max-height: 80px
+            padding: 15px 65px 15px 25px
+            height: auto
             border: 1px solid rgba(138, 138, 138, 0.5)
             transition: .2s 
     &__text
@@ -119,7 +129,20 @@
         &_6
             background: linear-gradient(to right, $accent 85%, #f2f2f2 85%, #f2f2f2 100%)
        
+@media (max-width: 992px)
+    .about
+        &__content
+            display: block
+            padding: 0 80px
+        &__block
+            margin: 0
+        &__items
+            margin-bottom: 80px
 
+@media (max-width: 576px)
+    .about
+        &__content
+            padding: 0
     
 
     

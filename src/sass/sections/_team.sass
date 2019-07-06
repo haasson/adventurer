@@ -5,8 +5,9 @@
    &__item
       position: relative
       height: 300px
-      width: 23%
-      background: #ccc url('../../img/team/team-sprite.png') no-repeat
+      width: 250px
+      margin: 0 20px
+      background: url('../img/team/team-sprite.png') no-repeat
       &:after
          content: ''
          display: block
@@ -86,3 +87,23 @@
          align-items: center
          width: 50%
          margin: 15px
+
+@media (max-width: 1200px)
+   .team
+      &__items
+         flex-wrap: wrap
+         justify-content: center
+      &__item
+         margin: 20px 70px
+
+@media (max-width: 992px)
+   .team
+      &__item
+         margin: 20px 40px
+
+
+@media (max-width: 480px)
+   .team
+      &__item
+         margin: 20px auto
+         

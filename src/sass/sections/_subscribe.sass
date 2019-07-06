@@ -6,6 +6,7 @@
       align-items: center
       padding: 15px 0
    &__label
+      flex-grow: 1
       color: #cccccc
       font-size: 16px
       +roboto-medium
@@ -13,10 +14,12 @@
    &__item
       display: flex
       justify-content: flex-end
+      width: 400px
+      margin-left: 20px
       border-radius: 3px
       overflow: hidden
    &__email
-      width: 300px
+      flex-grow: 1
       padding: 20px
       color: $primary
       font-size: 20px
@@ -24,9 +27,24 @@
       letter-spacing: 0.67px
    &__submit
       width: 65px
-      background: $accent url('../../img/subscribe/button-icon.svg') no-repeat center
+      background: $accent url('../img/subscribe/button-icon.svg') no-repeat center
       border: none
       outline: none 
       cursor: pointer
       &:hover
          background-color: darken($accent, 10%)
+
+@media (max-width: 768px)
+   .subscribe
+      &__form
+         flex-direction: column
+      &__item
+         margin-left: 0
+         margin-top: 30px
+
+@media (max-width: 420px)
+   .subscribe
+      &__label
+         text-align: center
+      &__item
+         width: 300px

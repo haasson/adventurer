@@ -7,23 +7,23 @@
       &-part
          &:first-child
             margin-bottom: 70px
+         &-content
+            margin-left: 160px
    &__img
       float: left
    &__title
-      margin: 0 0 0 160px
       font-size: 25px
       +roboto-bold
       text-transform: uppercase
       letter-spacing: 0.25px
    &__subtitle
-      margin: 5px 0 35px 160px 
+      margin: 5px 0 35px
       color: $accent
       font-size: 14px
       +roboto-bold
       text-transform: uppercase
       letter-spacing: 0.14px
    &__text
-      margin: 0 0 0 160px     
       color: $light
       font-size: 18px
       +roboto-light
@@ -46,3 +46,17 @@
             background-color: $accent
       button
          display: none
+
+@media (max-width: 576px)
+   .slider
+      &__item
+         &-part
+            &-content
+               margin: 0
+               text-align: center
+      &__title
+         margin-bottom: 10px
+      &__img
+         float: none
+         display: block
+         margin: 0 auto

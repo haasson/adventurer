@@ -8,10 +8,6 @@ searchBtn.addEventListener('click', function () {
 })
 
 
-
-
-
-
 // Блок about
 
 let aboutCaret = document.querySelectorAll('.about__icon');

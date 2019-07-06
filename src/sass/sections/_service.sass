@@ -10,6 +10,7 @@
         justify-content: space-between
         align-items: center
         max-width: 270px
+        margin: 0 5px
         padding: 0 30px
         border: 1px solid #dbdbdb
         border-radius: 7px
@@ -46,3 +47,16 @@
     &__button
         margin-bottom: 40px
     
+@media (max-width: 1200px)
+    .service
+        &__item
+            max-width: 240px
+    
+@media (max-width: 992px)
+    .service
+        &__items
+            flex-direction: column
+            align-items: center
+        &__item
+            max-width: 400px
+            margin: 10px 0

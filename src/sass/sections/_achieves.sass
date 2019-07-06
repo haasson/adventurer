@@ -1,7 +1,7 @@
 .achieves
    position: relative
    padding-bottom: 50px
-   background: #ccc url('../../img/achieves/bg.png') no-repeat round
+   background: #ccc url('../img/achieves/bg.png') no-repeat round
    &:after
       content: ''
       display: block
@@ -58,3 +58,16 @@
       +roboto-regular
       text-transform: uppercase
       letter-spacing: 6.44px
+
+@media (max-width: 992px)
+   .achieves
+      &__item
+         flex-basis: 48%
+         margin: 10px 0
+
+@media (max-width: 576px)
+   .achieves
+      &__items
+         justify-content: center
+      &__item
+         flex-basis: 90%
