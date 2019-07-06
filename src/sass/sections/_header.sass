@@ -1,0 +1,130 @@
+.header
+   &__wrap
+      display: flex
+      justify-content: space-between
+      align-items: center
+      // height: 80px
+   &__logo
+      color: $accent
+      font-size: 34px
+      text-transform: uppercase
+      font-variant: small-caps
+      letter-spacing: -1px
+      font-stretch: condensed
+      +pt-sans
+   &__searchblock
+      display: flex
+      align-items: center
+   &__search
+      display: inline-block
+      width: 50px
+      height: 70px
+      background: url('../../img/header/search.svg') no-repeat center
+      cursor: pointer
+      &:hover
+         filter: invert(56%) sepia(43%) saturate(6324%) hue-rotate(331deg) brightness(92%) contrast(102%)
+   &__find
+      margin-right: 15px
+      padding: 5px 20px
+      width: 0
+      box-sizing: border-box
+      border-color: transparent
+      border-radius: 20px
+      outline: none
+      font-size: 16px
+      transform-origin: right
+      transform: scale(0, 1)
+      transition: 0.4s
+      &-active
+         transform: scale(1, 1)
+         width: 170px
+         border: 1px solid $primary
+   &__nav
+      display: flex
+      justify-content: flex-end
+      flex-grow: 1
+   &__link
+      display: inline-block
+      margin-right: 35px
+      text-transform: uppercase
+      text-decoration: none
+      font-size: 14px
+      color: $primary
+      +roboto-bold
+      border-bottom: 1px solid transparent
+      transition: .1s
+      &:hover
+         color: $accent
+         border-bottom: 1px solid $accent
+         transition: .1s
+   &__main
+      position: relative
+      height: 520px
+      padding-top: 260px
+      background: url('../img/header/header.png') no-repeat center
+      &:after
+         content: ""
+         display: block
+         position: absolute
+         left: 0
+         top: 0
+         z-index: 1
+         width: 100%
+         height: 100%
+         background-color: #000000
+         opacity: 0.38
+   &__content
+      position: relative
+      z-index: 100
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      flex-wrap: wrap
+   &__title
+      color: #ffffff
+   &__subtitle
+      margin-top: 30px
+      margin-bottom: 90px
+      color: #ffffff
+      text-align: center
+      font-size: 14px
+      text-transform: uppercase
+      font-variant: small-caps
+      letter-spacing: 6.44px
+      +os-semibold
+      
+@media (max-width: 992px)
+   .header
+      &__wrap
+         flex-wrap: wrap
+      &__logo
+         font-size: 40px
+      &__nav
+         width: 100%
+         margin-top: 10px
+         margin-bottom: 30px
+         order: 10
+         justify-content: center
+      &__link
+         margin: 0 15px
+         font-size: 16px
+      &__subtitle
+         font-size: 12px
+
+@media (max-width: 480px)
+   .header
+      &__wrap
+      &__logo
+         font-size: 28px
+      &__nav
+         flex-direction: column
+         text-align: center
+      &__link
+         padding: 10px
+         background-color: #ccc
+         &:nth-child(odd)
+            background-color: #eee
+      &__find
+         width: 100px
+         margin-right: 0
