@@ -1,3 +1,11 @@
+$(document).ready(function () {
+   $('.slider').slick({
+      dots: true,
+      dotsClass: 'slider__dots',
+      arrows: false
+   })
+});
+
 
 let searchBtn = document.querySelector('.header__search');
 let searchInput = document.querySelector('.header__find');
@@ -194,58 +202,114 @@ for (let i = 0; i < cardsArray.length; i++) {
    worksScreen.appendChild(cardsArray[i]);
 }
 
+
+
+let links = document.querySelectorAll('.works__category');
+let types = ['', 'photo', 'graphic', 'web', 'print'];
+let amount = cardsArray.length;
+
+let worksCard = document.querySelector('.works__item');
+let widthOfCard;
+let heightOfCard = parseInt(getComputedStyle(worksCard).height);
+let margin = parseInt(getComputedStyle(worksCard).margin);;
+let widthWithMargins;
+let heightWithMargins;
+
+let heightOfList = parseInt(getComputedStyle(document.querySelector('.works__items')).height);
+
+let wrapper = document.querySelector('.works__wrap')
+
+
+
+let edge;
+let columns;
+let rows;
+
+if (heightOfList <= 500) {
+   rows = 1;
+}
+else {
+   rows = 2;
+}
+
+widthOfCard = parseInt(getComputedStyle(worksCard).width);
+widthWithMargins = widthOfCard + margin * 2;
+heightWithMargins = heightOfCard + margin * 2;
+columns = (Math.floor(document.documentElement.clientWidth / (widthWithMargins + 60) > 3)) ? 3 : Math.floor(document.documentElement.clientWidth / (widthWithMargins + 40));
+wrapper.style.width = widthWithMargins * columns + 'px'
+edge = 0 - (Math.ceil(amount / rows) - columns) * widthWithMargins;
+let position = 0;
+
+window.addEventListener('resize', function () {
+   heightOfList = parseInt(getComputedStyle(document.querySelector('.works__items')).height);
+   if (heightOfList <= 500) {
+      rows = 1;
+   }
+   else {
+      rows = 2;
+   }
+   
+   edge = 0 - (Math.ceil(amount / rows) - columns) * widthWithMargins;
+   widthOfCard = parseInt(getComputedStyle(worksCard).width);
+   widthWithMargins = widthOfCard + margin * 2;
+   heightWithMargins = heightOfCard + margin * 2;
+   columns = (Math.floor(document.documentElement.clientWidth / (widthWithMargins + 60) > 3)) ? 3 : Math.floor(document.documentElement.clientWidth / (widthWithMargins +40));
+   wrapper.style.width = widthWithMargins * columns + 'px';
+   position = 0;
+   worksScreen.style.left = '0px';
+})
+
+
 // Обработчики для кнопок вперед и назад
 let prev = document.querySelector('.works__arrow_left');
 let next = document.querySelector('.works__arrow_right');
 
-let position = 15;
 
 prev.addEventListener('click', function () {
-   if (position === 15) {
+   if (position === 0) {
       worksScreen.style.left = '100px';
       setTimeout(function () {
-         worksScreen.style.left = '15px';
+         worksScreen.style.left = '0px';
       }, 300)
-
+      
    }
    else {
-      position += 380;
+      position += widthWithMargins;
       worksScreen.style.left = position + 'px';
    }
 })
 
 next.addEventListener('click', function () {
+   
    if (position <= edge) {
       
       worksScreen.style.left = edge - 100 + 'px';
       setTimeout(function () {
          worksScreen.style.left = edge + 'px';
       }, 300)
-
+      
    }
    else {
-      position -= 380;
+      position -= widthWithMargins;
       worksScreen.style.left = position + 'px';
    }
 }) 
 
+
+
 // Обработчики для ссылок блока категорий
-let links = document.querySelectorAll('.works__category');
-let types = ['', 'photo', 'graphic', 'web', 'print'];
-let amount = cardsArray.length;
-let edge = 15 - (Math.ceil(amount / 2) - 3) * 380; 
 
 // Категория ALL 
 links[0].addEventListener('click', function (e) {
    e.preventDefault();
 
-   worksScreen.style.left = '15px';
-   position = 15;
+   worksScreen.style.left = '0px';
+   position = 0;
    amount = cardsArray.length;
    for (let j = 0; j < cardsArray.length; j++) {
       cardsArray[j].classList.remove('works__hidden');
    }
-   edge = 15 - (Math.ceil(amount / 2) - 3) * 380; ;
+   edge = 0 - (Math.ceil(amount / rows) - columns) * widthWithMargins; ;
 })
 
 // Остальные категории
@@ -253,8 +317,8 @@ for (let i = 1; i < links.length; i++) {
    links[i].addEventListener('click', function (e) {
       e.preventDefault();
 
-      worksScreen.style.left = '15px';
-      position = 15;
+      worksScreen.style.left = '0px';
+      position = 0;
       amount = cardsArray.length;
 
       for (let j = 0; j < cardsArray.length; j++) {
@@ -265,48 +329,11 @@ for (let i = 1; i < links.length; i++) {
             amount--;
          }
       }
-      if (amount > 4) {
-         edge = 15 - (Math.ceil(amount / 2) - 3) * 380;
+      if (amount > rows * 2) {
+         edge = 0 - (Math.ceil(amount / rows) - columns) * widthWithMargins;
       }
       else
-         edge = 15;
+         edge = 0;
    })
 }
 
-// Получаем шаблон модального окна и оверлей
-let modal = document.querySelector('.modal');
-let overlay = document.querySelector('.overlay');
-
-
-// Увеличиваем изображение по клику
-let zoomImage = document.querySelectorAll('.works__zoom');
-for (let i = 0; i < zoomImage.length; i++) {
-   zoomImage[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      openModal();
-      modal.innerHTML = '<img class="works__image_big" src="img/works/' + worksCards[i].image + '">';
-   })
-}
-
-// Модальное окно при подписке на рассылку
-let subscribe = document.querySelector('.subscribe__submit');
-subscribe.addEventListener('click', function (e) {
-   e.preventDefault();
-   openModal();
-})
-
-
-// Функции открытия и закрытия модального окна
-function openModal() {
-   modal.classList.add('active');
-   overlay.classList.add('active');
-   overlay.addEventListener('click', function () {
-   closeModal();
-   })
-}
-
-function closeModal() {
-   modal.classList.remove('active');
-   overlay.classList.remove('active');
-   modal.innerHTML = '';
-}
